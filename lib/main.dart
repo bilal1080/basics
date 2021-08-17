@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_medium/screen1.dart';
 import 'package:flutter_medium/secondScreen.dart';
 import 'package:flutter_medium/todos.dart';
 
@@ -9,7 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ABC();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ScreenOne(),
+    );
   }
 }
-

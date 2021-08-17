@@ -25,7 +25,7 @@ class ABC extends StatelessWidget {
 }
 
 class TodosScreen extends StatelessWidget {
-  const TodosScreen({Key? key, required this.todos}) : super(key: key);
+  const TodosScreen({ required this.todos});
 
   final List<Todo> todos;
 

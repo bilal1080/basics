@@ -4,7 +4,7 @@ import 'package:flutter_medium/todo.dart';
 
 class DetailScreen extends StatelessWidget {
   // In the constructor, require a Todo.
-  const DetailScreen({Key? key, required this.todo}) : super(key: key);
+  const DetailScreen({required this.todo});
 
   // Declare a field that holds the Todo.
   final Todo todo;
