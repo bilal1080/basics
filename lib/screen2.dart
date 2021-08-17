@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_medium/student.dart';
 
 class ScreenTwo extends StatefulWidget {
   ScreenTwo({Key? key}) : super(key: key);
+  static const Route = '/ScreenTwo';
 
   @override
   _ScreenTwoState createState() => _ScreenTwoState();
@@ -10,21 +12,18 @@ class ScreenTwo extends StatefulWidget {
 class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
+    Student? student = ModalRoute.of(context)!.settings.arguments as Student?;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Center(
-              child: Hero(
-                tag: 'heroimage',
-                child: Image.network(
-                  'https://picsum.photos/250?image=9',
-                ),
-              ),
-            )),
+        appBar: AppBar(title: Text('Page 2'),),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('name : ${student!.name}'),
+               Text('age : ${student.age}'),
+            ],),)
       ),
     );
   }

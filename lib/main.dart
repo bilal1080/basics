@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: ScreenOne.Route,
       routes: {
-        '/first' : (context) => ScreenOne(),
-        '/second' : (context) => ScreenTwo(),
+        ScreenOne.Route : (context) => ScreenOne(),
+        ScreenTwo.Route : (context) => ScreenTwo(),
       },
-      home: ScreenOne(),
+      //home: ScreenOne(),
     );
   }
 }
