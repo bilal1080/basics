@@ -7,22 +7,17 @@ class ScreenOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScreenTwo(),
-                ));
-          },
-          child: Hero(
-            tag: 'heroimage',
-            child: Image.network(
-              'https://picsum.photos/250?image=9',
-            ),
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/second');
+        },
+        child: Hero(
+          tag: 'heroimage',
+          child: Image.network(
+            'https://picsum.photos/250?image=9',
           ),
         ),
-      
+      ),
     );
   }
 }
