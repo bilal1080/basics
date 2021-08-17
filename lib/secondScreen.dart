@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_medium/todo.dart';
 
 
+class DetailScreen extends StatelessWidget {
+  // In the constructor, require a Todo.
+  const DetailScreen({Key? key, required this.todo}) : super(key: key);
 
-class Myscreen extends StatelessWidget {
-  const Myscreen({Key? key}) : super(key: key);
+  // Declare a field that holds the Todo.
+  final Todo todo;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blueGrey,
-          title: Text(
-            'Second Screen',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Press to button to go back to the previous screen'),
-            ElevatedButton(
-              child: Text('Click'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+    // Use the Todo to create the UI.
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(todo.title),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(todo.description),
       ),
     );
   }
 }
+
