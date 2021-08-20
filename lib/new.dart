@@ -1,77 +1,37 @@
 import 'package:flutter/material.dart';
-class Screen extends StatelessWidget {
-  const Screen({Key? key}) : super(key: key);
+import 'package:flutter_medium/newTodopage.dart';
+import 'package:flutter_medium/todo.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Returning Data Demo'),
-      ),
-      body: const Center(
-        child: NewHomeScreen(),
-      ),
-    );
-  }
-}
-class NewHomeScreen extends StatelessWidget {
-  const NewHomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-            child: Text('Pick any option'),
-            onPressed: () {
-              _getdata(context);
-            },
-          
-    );
-  }
-
-  _getdata(BuildContext context) async {
-    final data = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => NewScreen()),
-    );
-
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text('$data')));
-  }
-
-  
-}
-
-
-
-class NewScreen extends StatelessWidget {
-  const NewScreen({Key? key}) : super(key: key);
-
+class TodoScreen extends StatelessWidget {
+  // ignore: non_constant_identifier_names
+  const TodoScreen({
+    Key? key,
+    required this.Todos,
+  }) : super(key: key);
+  // ignore: non_constant_identifier_names
+  final List<Todo> Todos;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Get Data'),
+          title: Text('Todo List'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context, 'i have click hey');
-                  },
-                  child: Text('!Hey')),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context, 'i have click bye');
-                  },
-                  child: Text('!bye')),
-            ],
-          ),
-        ),
+        body: ListView.builder(
+            itemCount: Todos.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              NewTodoPage(todo: Todos[index])));
+                },
+                title: Text(Todos[index].title),
+              );
+            }),
       ),
     );
   }
