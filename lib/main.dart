@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_medium/screen1.dart';
-import 'package:flutter_medium/screen2.dart';
-import 'package:flutter_medium/secondScreen.dart';
-import 'package:flutter_medium/todos.dart';
+
+import 'ongenerateRoute.dart';
+// import 'package:flutter_medium/screen1.dart';
+// import 'package:flutter_medium/screen2.dart';
+// import 'package:flutter_medium/secondScreen.dart';
+// import 'package:flutter_medium/todos.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,12 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: ScreenOne.Route,
-      routes: {
-        ScreenOne.Route : (context) => ScreenOne(),
-        ScreenTwo.Route : (context) => ScreenTwo(),
-      },
-      //home: ScreenOne(),
+      initialRoute: '/',
+     onGenerateRoute: RouteGenerator.generateRoute,
+      
     );
   }
 }

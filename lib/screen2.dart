@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_medium/student.dart';
 
-class ScreenTwo extends StatefulWidget {
-  ScreenTwo({Key? key}) : super(key: key);
-  static const Route = '/ScreenTwo';
+class ScreenTwo extends StatelessWidget {
+  final String data;
+  const ScreenTwo({Key? key,
+  required this.data}) : super(key: key);
 
-  @override
-  _ScreenTwoState createState() => _ScreenTwoState();
-}
-
-class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
-    Student? student = ModalRoute.of(context)!.settings.arguments as Student?;
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Page 2'),),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('name : ${student!.name}'),
-               Text('age : ${student.age}'),
-            ],),)
-      ),
+          appBar: AppBar(
+            title: Text('Page 2'),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Second Page',
+                  style: TextStyle(fontSize: 50),
+                ),
+                Text(
+                  data,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
+          )),
+    
     );
   }
 }
