@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_medium/new.dart';
+import 'package:flutter_medium/returnDataToScreen.dart';
 
-import 'ongenerateRoute.dart';
+//import 'ongenerateRoute.dart';
 // import 'package:flutter_medium/screen1.dart';
 // import 'package:flutter_medium/screen2.dart';
 // import 'package:flutter_medium/secondScreen.dart';
@@ -15,9 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-     onGenerateRoute: RouteGenerator.generateRoute,
-      
+      home: Screen(),
     );
   }
 }
